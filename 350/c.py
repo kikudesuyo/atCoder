@@ -10,6 +10,9 @@ sorted_elems = []
 for i in range(n):
     if array[i] == i + 1:
         continue
+    # ここがポイント。1個ずつ変えて参照すると、変更後の値を参照してしまいうまく変更することが出来ない。
+    # 配列と辞書の変更によって依存しないようなコードを書くことで、混乱が避けられそう。
+    # うまく分離しよう
     j = dict[i + 1]
     dict[array[i]], dict[array[j]] = dict[array[j]], dict[array[i]]
     array[i], array[j] = array[j], array[i]
