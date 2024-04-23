@@ -1,32 +1,16 @@
 n = int(input())
 
-dict = {}
-color_history = []
-for i in range(n):
-    bean = list(map(int, input().split()))
-    yummy_num, color = bean
-    if color in color_history:
-        same_color_beans = dict[color]
-        same_color_beans.append(bean)
-        dict[color] = same_color_beans
+color_to_min_yummy = {}
+
+for _ in range(n):
+    yummy_num, color = map(int, input().split())
+    if color in color_to_min_yummy.keys():
+        if yummy_num < color_to_min_yummy[color]:
+            color_to_min_yummy[color] = yummy_num
     else:
-        dict[color] = [bean]
-        color_history.append(color)
+        color_to_min_yummy[color] = yummy_num
 
-yummy_mins = {}
-for key, value in dict.items():
-    yummy_min = 10000000000000000000
-    for i in value:
-        if i[0] < yummy_min:
-            yummy_min = i[0]
-    yummy_mins[key] = yummy_min
-
-# print(yummy_mins)
-
-
-max = 0
-for key, value in yummy_mins.items():
-    if value > max:
-        max = value
-
-print(max)
+# 最大の美味しさを持つ豆の数を求める
+if color_to_min_yummy:
+    yummy_max = max(color_to_min_yummy.values())
+    print(yummy_max)
