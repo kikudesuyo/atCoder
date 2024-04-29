@@ -1,8 +1,6 @@
 n = int(input())
 a_s = list(map(int, input().split()))
-a_dict = {}
-for idx in range(n):
-    a_dict[idx] = a_s[idx]
+a_list = a_s.copy()
 check_a = []
 input_count = 0
 reverse_flag = False
@@ -18,15 +16,15 @@ while input_count < n + 1:
     if input_count == n:
         break
     if len(check_a) == 0:
-        check_a.append(a_dict[input_count])
+        check_a.append(a_list[input_count])
         input_count += 1
         continue
-    if check_a[-1] == a_dict[input_count]:
+    if check_a[-1] == a_list[input_count]:
         check_a[-1] += 1
         input_count += 1
         reverse_flag = True
-    elif check_a[-1] != a_dict[input_count]:
-        check_a.append(a_dict[input_count])
+    elif check_a[-1] != a_list[input_count]:
+        check_a.append(a_list[input_count])
         input_count += 1
 
 print(len(check_a))
