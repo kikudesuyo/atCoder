@@ -1,3 +1,4 @@
+### pop, appendを用いた方法だとO(N*K)となりTLEになる
 # n, k = list(map(int, input().split()))
 # p_s = list(map(int, input().split()))
 
@@ -17,7 +18,7 @@
 #     diffs.append(diff)
 # print(min(diffs))
 
-###アルゴリズムは同じ、SortedSetを使用することでオーダーがlogNとなりACになる
+### アルゴリズムは同じ、SortedSetを使用することでO(NlogK)となりACになる
 N, K = map(int, input().split())
 P = list(map(int, input().split()))
 R = [None for _ in range(N)]

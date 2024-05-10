@@ -8,8 +8,6 @@ s = list(input())
 count = 0
 for i in range(0, len(s) - 1):
     s[i:]
-
-
 if count == 0:
     print(1)
 else:
