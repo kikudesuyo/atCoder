@@ -1,4 +1,4 @@
-### pop, appendを用いた方法だとO(N*K)となりTLEになる
+### pop, appendを用いた方法だとO(n*k)となりTLEになる
 # n, k = list(map(int, input().split()))
 # p_s = list(map(int, input().split()))
 
@@ -19,20 +19,21 @@
 # print(min(diffs))
 
 ### アルゴリズムは同じ、SortedSetを使用することでO(NlogK)となりACになる
-N, K = map(int, input().split())
-P = list(map(int, input().split()))
-R = [None for _ in range(N)]
-for n in range(N):
-    R[P[n] - 1] = n + 1
 from sortedcontainers import SortedSet
 
-SS = SortedSet()
-for n in range(K):
-    SS.add(R[n])
-min = SS[K - 1] - SS[0]
-for n in range(1, N - K + 1):
-    SS.discard(R[n - 1])
-    SS.add(R[n + K - 1])
-    if min is None or SS[K - 1] - SS[0] < min:
-        min = SS[K - 1] - SS[0]
+n, k = map(int, input().split())
+p = list(map(int, input().split()))
+idxes = [None for _ in range(n)]
+for n in range(n):
+    idxes[p[n] - 1] = n + 1
+
+good_array = SortedSet()
+for n in range(k):
+    good_array.add(idxes[n])
+min = good_array[k - 1] - good_array[0]
+for n in range(1, n - k + 1):
+    good_array.discard(idxes[n - 1])
+    good_array.add(idxes[n + k - 1])
+    if min is None or good_array[k - 1] - good_array[0] < min:
+        min = good_array[k - 1] - good_array[0]
 print(min)
