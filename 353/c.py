@@ -13,6 +13,7 @@ while left <= right:
         # rightの次の値からnまでの値は条件を満たす(インデックスを基に記述)
         count += (n - 1) - (right + 1) + 1
 # 残りのleftはleft<rightであれば全て条件を満たす
+# leftがn-1まで全て満たす
 rest = n - left - 1
 count += (rest * (rest + 1)) // 2
 total = sum(a_s) * (n - 1)
