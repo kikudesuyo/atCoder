@@ -6,21 +6,21 @@ for i in range(n):
     a_i, c_i = list(map(int, input().split()))
     a.append(a_i)
     a_to_c[a_i] = c_i
-    a_to_idx[a_i] = i + 1
+    a_to_idx[a_i] = i
 
 asc_a = sorted(a)
 
-removed_idxes = []
-for i in range(n):
-    a_i, next_a_i = asc_a[i], asc_a[i + 1]
-    if a_to_c[a_i] > a_to_c[next_a_i]:
-        removed_idxes.append(a_to_idx[a_i])
-    if i == n - 2:
-        break
+seletcted_idxes = [(a_to_idx[asc_a[-1]])]
 
+i = n - 1
+j = n - 2
+while j >= 0:
+    if a_to_c[asc_a[j]] < a_to_c[asc_a[i]]:
+        seletcted_idxes.append(a_to_idx[asc_a[j]])
+        i = j
+    j -= 1
 
-print(n - len(removed_idxes))
-for i in range(1, n + 1):
-    if i not in removed_idxes:
-        print(i, end=" ")
+print(len(seletcted_idxes))
+for idx in sorted(seletcted_idxes):
+    print(idx + 1, end=" ")
 print()
