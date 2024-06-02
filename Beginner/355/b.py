@@ -6,7 +6,6 @@ all = a_s + b_s
 
 all_sorted = sorted(all)
 
-
 flag = False
 for idx in range(len(all_sorted)):
     if flag:
