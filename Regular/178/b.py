@@ -18,5 +18,3 @@ for test_case in test_cases:
         small_digit_num = x_1
     if x_3 != big_digit_num or x_3 != big_digit_num + 1:
         print(0)
-    for digit in range(1, small_digit_num + 1):
-        if x_1 == x_2:
