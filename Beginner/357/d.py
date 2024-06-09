@@ -1,10 +1,18 @@
-# n = int(input())
+str_n = input()
+int_n = int(str_n)
 
-# v_n = [n * (10**i) for i in range(n)]
-# sum = 0
-# for i in range(n):
-#     sum += v_n[i] % 998244353
-# sum = sum % 998244353
-# print(sum)
-n = input()
-sum = n * (1 - 10 ** len(n))
+p = 998244353
+
+
+# 繰り返し二乗法を使用していない
+# numerator = (10 ** (int_n * len(str_n)) - 1) % p
+# denominator = (10 ** len(str_n) - 1) % p
+
+# 繰り返し二乗法を使用しているコード
+numerator = pow(10, int_n * len(str_n), p) - 1
+denominator = pow(10, len(str_n), p) - 1
+
+# 分母の逆元を取って計算する
+ans = (int_n * numerator * pow(denominator, -1, p)) % p
+
+print(ans)
