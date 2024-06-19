@@ -7,27 +7,13 @@ c_n = list(map(int, input().split()))
 q = int(input())
 x_s = list(map(int, input().split()))
 
-
-comb_sum = []
+comb_sum = set([])
 for a in a_s:
     for b in b_s:
         for c in c_n:
-            comb_sum.append(a + b + c)
-
-sorted_comb_sum = sorted(comb_sum)
-
+            comb_sum.add(a + b + c)
 for x in x_s:
-    flag = False
-    left, right = 0, len(sorted_comb_sum) - 1
-    while left <= right:
-        mid = (left + right) // 2
-        if sorted_comb_sum[mid] == x:
-            print("Yes")
-            flag = True
-            break
-        if sorted_comb_sum[mid] < x:
-            left = mid + 1
-        else:
-            right = mid - 1
-    if not flag:
+    if x in comb_sum:
+        print("Yes")
+    else:
         print("No")
