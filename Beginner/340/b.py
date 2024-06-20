@@ -1,5 +1,4 @@
 q = int(input())
-
 queries = []
 
 for _ in range(q):
