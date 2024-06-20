@@ -3,6 +3,7 @@ t = input()
 s_s = [input() for _ in range(h)]
 
 count = 0
+
 for i in range(h):
     for j in range(w):
         if s_s[i][j] == "#":
