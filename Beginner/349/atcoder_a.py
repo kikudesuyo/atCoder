@@ -1,13 +1,8 @@
-def judge(N, A_string):
-    A_array = A_string.split(" ")
-    a_int_array = list(map(int, A_array))
-    count = 0
-    for i in a_int_array:
-        count += i
-    print(int(N) - count)
+n = int(input())
+a_s = list(map(int, input().split()))
 
+sum = 0
+for i in range(len(a_s)):
+    sum += a_s[i]
 
-string = input()
-array = input()
-
-judge(string, array)
+print(sum * -1)
