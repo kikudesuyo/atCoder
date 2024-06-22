@@ -1,5 +1,6 @@
 n = int(input())
 a_s = list(map(int, input().split()))
+
 count = 0
 for i in range(len(a_s)):
     if i == len(a_s) - 2:
