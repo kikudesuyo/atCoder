@@ -1,33 +1,12 @@
-n = int(input())
-sum_num = 0
+from functools import cache
 
-one_count, other_count = 1, 0
-one_number, other_number = n, None
-while True:
-    if other_number is None:
-        if one_number == 1:
-            break
-        if one_number % 2 == 0:
-            sum_num += one_number * one_count
-            one_count *= 2
-            one_number = one_number // 2
-        else:
-            sum_num += one_count * one_number
-            other_number = one_number // 2 + 1
-            one_number = one_number // 2
-            other_count = one_count
-        continue
-    if one_number % 2 == 0:
-        sum_num = sum_num + one_count * one_number + other_count * other_number
-        one_count = one_count * 2 + other_count
-        one_number = one_number // 2
-        other_number = other_number // 2 + 1
-    else:
-        if one_number == 1:
-            sum_num = sum_num + other_count * other_number
-            break
-        sum_num = sum_num + one_count * one_number + other_count * other_number
-        other_count = other_count * 2 + one_count
-        one_number = one_number // 2
-        other_number = other_number // 2
-print(sum_num)
+
+@cache
+def f(n):
+    if n == 1:
+        return 0
+    # f((n+1)//2)のときに誤解されそうだが、nが奇数のときはn+1が偶数になるので、f((n+1)//2)はf(n//2)の次に呼ばれる
+    return f(n // 2) + f((n + 1) // 2) + n
+
+
+print(f(int(input())))
