@@ -22,7 +22,6 @@ else:
     else:
         left_t_x = t_x
 
-
 # 左に移動
 if left_s_x > left_t_x:
     y_diff = abs(s_y - t_y)
