@@ -1,26 +1,16 @@
 s_x, s_y = map(int, input().split())
 t_x, t_y = map(int, input().split())
+
 # 左側に寄せる
-if s_y % 2 == 0:
-    if s_x % 2 == 0:
-        left_s_x = s_x
-    else:
-        left_s_x = s_x - 1
+if (s_x + s_y) % 2 == 0:
+    left_s_x = s_x
 else:
-    if s_x % 2 == 0:
-        left_s_x = s_x - 1
-    else:
-        left_s_x = s_x
-if t_y % 2 == 0:
-    if t_x % 2 == 0:
-        left_t_x = t_x
-    else:
-        left_t_x = t_x - 1
+    left_s_x = s_x - 1
+
+if (t_x + t_y) % 2 == 0:
+    left_t_x = t_x
 else:
-    if t_x % 2 == 0:
-        left_t_x = t_x - 1
-    else:
-        left_t_x = t_x
+    left_t_x = t_x - 1
 
 # 左に移動
 if left_s_x > left_t_x:
