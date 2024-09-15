@@ -9,11 +9,6 @@ set = list(map(int, set(remainder)))
 
 sort = sorted(set)
 diff = 0
-# for i in range(len(sort)):
-#     if i == len(sort) - 1:
-#         break
-#     if sort[i + 1] - sort[i] > diff:
-#         diff = sort[i + 1] - sort[i]
 for i in range(len(sort)):
     j = (i + len(sort) - 1) % len(sort)
     length = (sort[j] - sort[i]) % week_days + 1
