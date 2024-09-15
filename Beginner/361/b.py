@@ -3,11 +3,13 @@ x3, y3, z3, x4, y4, z4 = map(int, input().split())
 
 
 def f(l1, r1, l2, r2):
-    # 共通部分があるかどうか判定する関数
-    return not (r1 <= l2 or r2 <= l1)
+    if l1 < l2 < r1:
+        return True
+    if l2 < l1 < r2:
+        return True
+    return False
 
 
-# x,y,xそれぞれに対して共通部分があるかどうか判定
 if f(x1, x2, x3, x4) and f(y1, y2, y3, y4) and f(z1, z2, z3, z4):
     print("Yes")
 else:
