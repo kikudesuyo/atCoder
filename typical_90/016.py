@@ -1,6 +1,9 @@
 n = int(input())
 a, b, c = map(int, input().split())
 
+
+# CをループしなくてもAとBが決まればCは一意に決まる
+# Cの値が条件を満たすかを確認するだけでよい
 min_num = 10**4
 for x in range(n // a + 1):
     for y in range(n // b + 1):
