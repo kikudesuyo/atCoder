@@ -10,3 +10,5 @@ for i in range(n):
 
 if sum(list) > k or (k - sum(list)) % 2 != 0:
     print("No")
+else:
+    print("Yes")
