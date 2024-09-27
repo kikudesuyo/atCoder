@@ -1,11 +1,15 @@
 n = int(input())
-ans = 100
-temp = 5
-for i in range(1, 100 + 1):
-    if i % 5 == 0:
-        abs_num = abs(i - n)
-        print(i, abs_num)
-        if abs_num < temp:
-            temp = abs_num
-            ans = i
-print(ans)
+
+
+reminder = n % 5
+div = n // 5
+if reminder == 0:
+    print(5 * div)
+elif reminder == 1:
+    print(5 * div)
+elif reminder == 2:
+    print(5 * div)
+elif reminder == 3:
+    print(5 * (div + 1))
+else:
+    print(5 * (div + 1))
