@@ -1,9 +1,12 @@
 n, k, a = map(int, input().split())
-idx = k % 3
+idx = (k % n) - 1
 arr = []
-for i in range(n):
-    if i <= n - a:
-        arr.append(a + i)
+reminder = []
+for i in range(1, n + 1):
+    if i < a:
+        reminder.append(i)
     else:
-        arr.append(i - a + 1)
-print(arr[idx - 1])
+        arr.append(i)
+
+arr = arr + reminder
+print(arr[idx])
