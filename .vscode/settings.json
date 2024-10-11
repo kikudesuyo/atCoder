@@ -10,5 +10,13 @@
   "python.analysis.typeCheckingMode": "off",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[go]": {
+    "editor.formatOnSave": true
+  },
+  "go.useLanguageServer": true,
+  "gopls": {
+    "staticcheck": true
+  },
+  "go.goroot": "/Users/kiku/.local/share/mise/installs/go/1.23.2"
 }
