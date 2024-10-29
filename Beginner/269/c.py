@@ -13,3 +13,5 @@ for b in bin_n:
 pro = list(product(*arr))
 for e in pro:
     print(int("".join(map(str, e)), 2))
+
+arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
