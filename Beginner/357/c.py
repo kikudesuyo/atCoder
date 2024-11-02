@@ -1,54 +1,32 @@
 n = int(input())
 
-level_1 = ["###", "#.#", "###"]
-level_2 = [
-    "#########",
-    "#.##.##.#",
-    "#########",
-    "###...###",
-    "#.#...#.#",
-    "###...###",
-    "#########",
-    "#.##.##.#",
-    "#########",
-]
+
+def carpet(cur_carpet, cur_level):
+    arr = []
+    for i in range(3**cur_level):
+        arr.append(cur_carpet[i] * 3)
+    for i in range(3**cur_level):
+        arr.append(cur_carpet[i] + ["."] * 3**cur_level + cur_carpet[i])
+    for i in range(3**cur_level):
+        arr.append(cur_carpet[i] * 3)
+    return arr
 
 
-def blank(n):
-    if n == 2:
-        return "." * 3**n
-    else:
-        return [[blank(n - 1), blank(n - 1), blank(n - 1)]] * 3
+level1 = [["#", "#", "#"], ["#", ".", "#"], ["#", "#", "#"]]
+
+if n == 0:
+    print("#")
+    exit()
+elif n == 1:
+    for elems in level1:
+        print("".join(elems))
+    exit()
+
+cur_carpet = level1
+for i in range(1, n):
+    arr = carpet(cur_carpet, i)
+    cur_carpet = arr
 
 
-level_3 = [
-    level_2[0] * 3,
-    level_2[1] * 3,
-    level_2[2] * 3,
-    level_2[3] * 3,
-    level_2[4] * 3,
-    level_2[5] * 3,
-    level_2[6] * 3,
-    level_2[7] * 3,
-    level_2[8] * 3,
-    level_2[0] + blank(2) + level_2[0],
-    level_2[1] + blank(2) + level_2[1],
-    level_2[2] + blank(2) + level_2[2],
-    level_2[3] + blank(2) + level_2[3],
-    level_2[4] + blank(2) + level_2[4],
-    level_2[5] + blank(2) + level_2[5],
-    level_2[6] + blank(2) + level_2[6],
-    level_2[7] + blank(2) + level_2[7],
-    level_2[8] + blank(2) + level_2[8],
-    level_2[0] * 3,
-    level_2[1] * 3,
-    level_2[2] * 3,
-    level_2[3] * 3,
-    level_2[4] * 3,
-    level_2[5] * 3,
-    level_2[6] * 3,
-    level_2[7] * 3,
-    level_2[8] * 3,
-]
-
-print(*level_3, sep="\n")
+for elems in cur_carpet:
+    print("".join(elems))
