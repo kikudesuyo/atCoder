@@ -12,10 +12,10 @@ for i in range(h):
         if s_h[i][j] == "#":
             sensers.add((i, j))
 
-d = deque()
 cnt = 0
 while sensers:
-    d.append(sensers.pop())
+    start = sensers.pop()
+    d = deque([start])
     while d:
         x, y = d.popleft()
         for dx, dy in vectors:
