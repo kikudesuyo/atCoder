@@ -1,24 +1,25 @@
 n = int(input())
 array = list(map(int, input().split()))
 
-dict = {}
-for idx, elem in enumerate(array):
-    dict[elem] = idx
 
+val_to_idx = {}
+for i in range(n):
+    val_to_idx[array[i]] = i
 
-sorted_elems = []
+answers = []
 for i in range(n):
     if array[i] == i + 1:
         continue
-    # ここがポイント。1個ずつ変えて参照すると、変更後の値を参照してしまいうまく変更することが出来ない。
-    # 配列と辞書の変更によって依存しないようなコードを書くことで、混乱が避けられそう。
-    # うまく分離しよう
-    j = dict[i + 1]
-    dict[array[i]], dict[array[j]] = dict[array[j]], dict[array[i]]
-    array[i], array[j] = array[j], array[i]
-    sorted_elems.append([i + 1, j + 1])
+    cur_num = i + 1
+    cur_idx = val_to_idx[cur_num]
+    target_num = array[i]
+    array[cur_idx] = target_num
+    array[i] = i + 1
 
-print(len(sorted_elems))
-if len(sorted_elems) != 0:
-    for elem in sorted_elems:
-        print(f"{elem[0]} {elem[1]}")
+    val_to_idx[cur_num] = i
+    val_to_idx[target_num] = cur_idx
+    answers.append((i + 1, cur_idx + 1))
+
+print(len(answers))
+for answer in answers:
+    print(answer[0], answer[1])
