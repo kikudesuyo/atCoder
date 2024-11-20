@@ -2,16 +2,12 @@ n, k = map(int, input().split())
 a_n = list(map(int, input().split()))
 
 sorted_a_n = sorted(set(a_n))
-key_num = len(sorted_a_n)
-if k >= key_num:
-    k = key_num
-slice = sorted_a_n[:k]
+k = min(k, len(sorted_a_n))
 
 cnt = 0
-for i in slice:
-    if cnt != i:
+while cnt < k:
+    if cnt != sorted_a_n[cnt]:
         print(cnt)
         exit()
     cnt += 1
-
 print(cnt)
