@@ -28,6 +28,6 @@ ans = 10**9
 for e in c:
     s = 0
     for i in range(n):
-        s += a_nn[e[i]][i]
+        s += a_nn[e[i]][i]  # 選手選択後区間を加算
     ans = min(ans, s)
 print(ans)
