@@ -1,3 +1,5 @@
+# 俯角とは見下ろす角度
+
 import math
 
 t = int(input())
