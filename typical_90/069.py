@@ -1,5 +1,3 @@
-import math
-
 n, k = map(int, input().split())
 
 if n >= 5 and k < 5:
