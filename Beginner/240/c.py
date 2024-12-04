@@ -1,20 +1,20 @@
 n, x = map(int, input().split())
 ab_n = [list(map(int, input().split())) for _ in range(n)]
 
-a, b = ab_n[0]
-idxes = [a, b]
-for i in range(1, n):
+
+dp = [[False for _ in range(x + 1)] for _ in range(n + 1)]
+dp[0][0] = True
+
+for i in range(n):
     a, b = ab_n[i]
-    past_idxes = idxes.copy()
-    idxes = []
-    for elem in past_idxes:
-        idxes.append(a + elem)
-        idxes.append(b + elem)
-    idxes = list(set(idxes))
-    idexes = [elem for elem in idxes if elem <= x]
+    for j in range(x):
+        if dp[i][j]:
+            if j + a <= x:
+                dp[i + 1][j + a] = True
+            if j + b <= x:
+                dp[i + 1][j + b] = True
 
-
-if x in idxes:
+if dp[n][x]:
     print("Yes")
 else:
     print("No")
