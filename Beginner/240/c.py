@@ -1,3 +1,5 @@
+# dpでの解説AC
+
 n, x = map(int, input().split())
 ab_n = [list(map(int, input().split())) for _ in range(n)]
 
