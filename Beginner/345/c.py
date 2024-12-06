@@ -1,28 +1,26 @@
+from collections import defaultdict
+
 s = list(input())
 
-# alphabets = "abcdefghijklmnopqrstuvwxyz"
-# dict = {}
-# for i in alphabets:
-#     dict[i] = s.count(i)
+d = defaultdict(int)
+for i in range(len(s)):
+    d[s[i]] += 1
 
-count = 0
-for i in range(0, len(s) - 1):
-    s[i:]
-if count == 0:
-    print(1)
+f = False
+for v in d.values():
+    if v > 1:
+        f = True
+        break
+
+if f:
+    cnt = 1
 else:
-    print(count)
+    cnt = 0
 
 
-# count = 0
-# for i in range(len(s) - 1):
-#     for j in range(i, len(s)):
-#         # print(s[i], s[j])
-#         if s[i] == s[j]:
-#             continue
-#         else:
-#             count += 1
-# if count == 0:
-#     print(1)
-# else:
-#     print(count)
+for char in s:
+    sum_num = sum(d.values())
+    cnt += sum_num - d[char]
+    d[char] -= 1
+
+print(cnt)
