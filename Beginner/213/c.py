@@ -1,3 +1,4 @@
+# 座標圧縮
 from bisect import bisect_left
 
 h, w, n = map(int, input().split())
