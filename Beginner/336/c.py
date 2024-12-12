@@ -14,8 +14,6 @@ for digit in range(2, 100):
 if cnt == 0:
     print("8"*(digit-1))
     exit()
-
-
 first_num = (cnt//(5**(digit-1))+1)*2
 others_num = cnt%(5**(digit-1))-1
 
@@ -25,5 +23,4 @@ while idx < digit:
     ans[idx] = str(others_num//(5**(digit-1-idx))*2)
     others_num = others_num%(5**(digit-1-idx))
     idx += 1
-
 print("".join(ans))
