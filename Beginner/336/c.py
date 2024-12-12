@@ -1,26 +1,29 @@
 n = int(input())
 
+cnt = n
+if n <=5:
+    print((n-1)*2)
+    exit()
+cnt -= 5
 
-eight_array = []
-number = 5
-while number < 10**12:
-    eight_array.append(number)
-    number *= 5
-
-dict = {}
-for i, num in enumerate(reversed(eight_array)):
-    if n > num:
-        dict[len(eight_array) - i] = n // num
-        n -= num * (n // num)
-    if n < 5:
-        dict[0] = 1 + n // 2
-
-# 8ではない0→2→4→6→8と離散的
-count = 0
-for i in range(len(dict.keys())):
-    if i == 0:
-        count += i
+for digit in range(2, 100):
+    if cnt >= 4*(5**(digit-1)):
+        cnt -= 4*(5**(digit-1))
     else:
-        count += int("8" * n)
+        break
+if cnt == 0:
+    print("8"*(digit-1))
+    exit()
 
-print(count)
+
+first_num = (cnt//(5**(digit-1))+1)*2
+others_num = cnt%(5**(digit-1))-1
+
+ans = list(str(first_num)+"0"*(digit-1))
+idx = 1
+while idx < digit:
+    ans[idx] = str(others_num//(5**(digit-1-idx))*2)
+    others_num = others_num%(5**(digit-1-idx))
+    idx += 1
+
+print("".join(ans))
