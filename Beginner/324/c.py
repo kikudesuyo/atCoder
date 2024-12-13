@@ -22,14 +22,6 @@ def step2(s, t_dash):
     return False
 
 
-def step4(s, t_dash):
-    cnt = 0
-    for i in range(len(s)):
-        if s[i] != t_dash[i]:
-            cnt += 1
-    return cnt == 1
-
-
 def step3(s, t_dash):
     s_i, t_i = 0, 0
     while s_i < len(s) and t_i < len(t_dash):
@@ -41,6 +33,14 @@ def step3(s, t_dash):
     if t_i == len(t_dash):
         return True
     return False
+
+
+def step4(s, t_dash):
+    cnt = 0
+    for i in range(len(s)):
+        if s[i] != t_dash[i]:
+            cnt += 1
+    return cnt == 1
 
 
 ans = []
