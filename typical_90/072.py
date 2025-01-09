@@ -10,7 +10,9 @@ d = deque()
 for i in range(h):
     for j in range(w):
         if c_hw[i][j] == ".":
-            d.append(([(i, j)], (-100, -100)))
+            d.append(
+                ([(i, j)], (-100, -100))
+            )  # 初期値は基底ベクトルとは異なる値をもたせるため
 
 ans = -1
 # 過去の全ての座標、前回の向きを持っておく
