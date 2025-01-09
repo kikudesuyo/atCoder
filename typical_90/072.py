@@ -19,7 +19,11 @@ while d:
     (start_x, start_y) = coordinates[0]
     (current_x, current_y) = coordinates[-1]
     for dx, dy in base_vectors:
-        if (dx, dy) == (-vector[0], -vector[1]):
+        # 逆方向はスキップ(条件1の3<=kと条件2の移動先が相異なること満たす)
+        if (dx, dy) == (
+            -vector[0],
+            -vector[1],
+        ):
             continue
         nx, ny = current_x + dx, current_y + dy
         if (nx, ny) == coordinates[0]:
@@ -31,9 +35,7 @@ while d:
             and c_hw[nx][ny] == "."
             and (nx, ny) not in coordinates
         ):
-            copy_coodinates = coordinates.copy()
-            copy_coodinates.append((nx, ny))
-            d.append((copy_coodinates, (dx, dy)))
+            d.append((coordinates + [(nx, ny)], (dx, dy)))
 
 
 print(ans)
