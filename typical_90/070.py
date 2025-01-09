@@ -9,8 +9,9 @@ x_s.sort()
 y_s.sort()
 
 cnt = 0
-x = x_s[n // 2]
-y = y_s[n // 2]
+# 中央値を求める
+x_median = x_s[n // 2]
+y_median = y_s[n // 2]
 for i in range(n):
-    cnt += abs(x - x_s[i]) + abs(y - y_s[i])
+    cnt += abs(x_median - x_s[i]) + abs(y_median - y_s[i])
 print(cnt)
