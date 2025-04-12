@@ -12,9 +12,8 @@ for i in range(k):
 
 cur_sum_num = k
 for i in range(n - k):
-    cur_sum_num %= 10**9
     d.append(cur_sum_num)
-    cur_sum_num += cur_sum_num - d.popleft()
+    cur_sum_num += (cur_sum_num - d.popleft()) % 10**9
 
 
 print(cur_sum_num % 10**9)
